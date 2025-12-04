@@ -1,0 +1,19 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commit message format."
+    },
+    {
+      "text": "Generate commit messages in JAPANESE."
+    },
+    {
+      "text": "Messages should be concise and to the point."
+    },
+    {
+      "text": "After the description, add a bullet point list of changes for each file."
+    }
+  ],
+  "editor.tabSize": 2
+}
