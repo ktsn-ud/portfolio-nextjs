@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import Sidebar from "@/components/sidebar";
+
 const lineSeedJP = localFont({
   src: [
     {
@@ -39,7 +41,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${lineSeedJP.className} antialiased`}>{children}</body>
+      <body className={`${lineSeedJP.className} antialiased`}>
+        <Sidebar />
+        <main className="lg:ml-75">
+          <div className="lg:max-w-200 min-h-screen mx-auto p-8 flex flex-col justify-between">
+            <div>{children}</div>
+            <div className="text-center text-text-secondary text-sm pt-5">
+              &copy; ktsn-ud 2025 All right reserved.
+            </div>
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
