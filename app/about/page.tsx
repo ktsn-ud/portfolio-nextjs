@@ -1,5 +1,4 @@
 import Heading from "@/components/heading";
-import { FaArrowAltCircleDown } from "react-icons/fa";
 
 export default function Page() {
   return (
