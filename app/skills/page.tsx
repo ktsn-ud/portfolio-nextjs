@@ -1,3 +1,9 @@
+import Heading from "@/components/heading";
+
 export default function Page() {
-  return <div>Skills Page</div>;
+  return (
+    <div>
+      <Heading labelJa="スキル" labelEn="Skills" />
+    </div>
+  );
 }
