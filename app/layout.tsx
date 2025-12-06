@@ -32,6 +32,10 @@ const lineSeedJP = localFont({
 export const metadata: Metadata = {
   title: "ktsn-ud's Portfolio",
   description: "きつねうどんのポートフォリオサイト",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
