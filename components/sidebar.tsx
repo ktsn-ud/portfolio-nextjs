@@ -1,6 +1,7 @@
 import Image from "next/image";
 import profileIcon from "@/public/img/profile_icon.webp";
 import TableOfContents from "./tableOfContents";
+import { IoLogoGithub } from "react-icons/io5";
 
 export default function Sidebar() {
   return (
@@ -10,6 +11,13 @@ export default function Sidebar() {
         <hr className="w-full my-6" />
         <TableOfContents />
       </div>
+      <a
+        href="https://github.com/ktsn-ud"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <IoLogoGithub className="w-8 h-8 absolute bottom-5 left-5"></IoLogoGithub>
+      </a>
     </div>
   );
 }
