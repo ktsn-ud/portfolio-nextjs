@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ポートフォリオサイト
 
-## Getting Started
+Next.js 16 (App Router) で構築した、スキル・プロジェクト・経歴を紹介するモダンでレスポンシブなポートフォリオサイトです。
 
-First, run the development server:
+公開中のサイトはこちらから。  
+https://portfolio.ktsnud.dev
+
+## 概要
+
+個人のポートフォリオサイトです。以下のセクションで構成されています：
+
+- **About** - 自己紹介とプロフィール
+- **Skills** - スキルと専門知識
+- **Works** - ポートフォリオ作品
+- **History** - 経歴
+- **Contact** - お問い合わせ
+
+## 使用技術
+
+- **フレームワーク**: [Next.js 16](https://nextjs.org/)（React 19）
+- **言語**: [TypeScript](https://www.typescriptlang.org/)
+- **スタイリング**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **アイコン**: [React Icons](https://react-icons.github.io/react-icons/)
+- **パッケージマネージャー**: pnpm
+- **Linter / Formatter**: ESLint & Prettier
+
+## セットアップ
+
+### 必要な環境
+
+- Node.js 18 以上
+- pnpm
+
+### インストール
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# リポジトリをクローン
+git clone https://github.com/ktsn-ud/portfolio-nextjs.git
+cd portfolio-nextjs
+
+# 依存パッケージをインストール
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 開発サーバーの起動
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 開発サーバーを起動
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ブラウザで `http://localhost:3000` を開くと確認できます。
 
-## Learn More
+### 本番ビルド
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# 本番用にビルド
+pnpm build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 本番サーバーを起動
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### リント実行
 
-## Deploy on Vercel
+```bash
+# ESLint を実行
+pnpm lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## プロジェクト構成
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+.
+├── app/                    # Next.js app ディレクトリ
+│   ├── layout.tsx         # ルートレイアウト
+│   ├── page.tsx           # ホームページ（/aboutにリダイレクト）
+│   ├── about/             # About セクション
+│   ├── contact/           # Contact セクション
+│   ├── history/           # 職務経歴セクション
+│   ├── skills/            # スキルセクション
+│   └── works/             # ポートフォリオセクション
+├── components/            # 再利用可能な React コンポーネント
+│   ├── heading.tsx
+│   ├── sidebar.tsx
+│   └── tableOfContents.tsx
+├── public/                # 静的ファイル
+│   ├── fonts/
+│   └── img/
+└── [設定ファイル]          # Next.js、TypeScript、ESLint など
+```
+
+## デプロイ先
+
+[Cloudflare Pages](https://pages.cloudflare.com/)
+
+公開中のサイト：https://portfolio.ktsnud.dev
+
+### デプロイ方法
+
+このプロジェクトは GitHub に push すると自動的に Cloudflare Pages にデプロイされます。
+
+## 特徴
+
+- 全デバイスに対応したレスポンシブデザイン
+- Next.js 16 による高速なパフォーマンス
+- TypeScript による型安全な開発
+- Tailwind CSS による最新のスタイリング
+- SEO 対応の構造
+
+## お問い合わせ
+
+ご質問やお問い合わせは、サイトの [Contact ページ](https://portfolio.ktsnud.dev/contact) からお願いします。
