@@ -30,7 +30,7 @@ const lineSeedJP = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ktsn_ud's Portfolio",
+  title: "ktsn-ud's Portfolio",
   description: "きつねうどんのポートフォリオサイト",
 };
 
