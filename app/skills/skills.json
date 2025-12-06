@@ -104,6 +104,11 @@
             "url": "https://chibafes.com/"
           }
         ]
+      },
+      {
+        "title": "FastAPI",
+        "description": "バックエンドAPIの構築に使用経験あり。",
+        "links": null
       }
     ]
   },
