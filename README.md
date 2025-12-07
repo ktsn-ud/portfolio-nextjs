@@ -108,6 +108,10 @@ pnpm lint
 - Tailwind CSS による最新のスタイリング
 - SEO 対応の構造
 
+## データソース / 謝辞
+
+- 競技プログラミング（AtCoder）関連データの取得に [AtCoder Problems API](https://github.com/kenkoooo/AtCoderProblems/blob/master/doc/api.md) を利用しています。素晴らしい API を公開いただきありがとうございます。
+
 ## お問い合わせ
 
 ご質問やお問い合わせは、サイトの [Contact ページ](https://portfolio.ktsnud.dev/contact) からお願いします。
