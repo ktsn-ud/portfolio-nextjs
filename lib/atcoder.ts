@@ -61,7 +61,8 @@ type Language = (typeof LANGUAGES)[number];
  * @returns RawProblem[]
  */
 export async function getProblems(): Promise<RawProblem[]> {
-  const res = await fetch(API_PROBLEMS_URL, { next: { revalidate: 3600 } });
+  const res = await fetch(API_PROBLEMS_URL);
+  // const res = await fetch(API_PROBLEMS_URL, { next: { revalidate: 3600 } });
   if (!res.ok) {
     throw new Error(
       `Failed to fetch problems: ${res.status} ${res.statusText}`
@@ -76,7 +77,8 @@ export async function getProblems(): Promise<RawProblem[]> {
  * @returns RawSubmission[]
  */
 export async function getAllSubmissions(): Promise<RawSubmission[]> {
-  const res = await fetch(API_SUBMISSIONS_URL, { next: { revalidate: 3600 } });
+  const res = await fetch(API_SUBMISSIONS_URL);
+  // const res = await fetch(API_SUBMISSIONS_URL, { next: { revalidate: 3600 } });
   if (!res.ok) {
     throw new Error(
       `Failed to fetch submissions: ${res.status} ${res.statusText}`
@@ -106,12 +108,17 @@ function isLanguageMatch(
  * @param language 使用言語フィルタ（未指定の場合はすべての言語）
  * @returns LatestAcSubmissions[]
  */
-export function getLatestAcSubmissions(
-  problems: RawProblem[],
-  submissions: RawSubmission[],
-  limit?: number,
-  language?: Language
-): LatestAcSubmission[] {
+export function getLatestAcSubmissions({
+  problems,
+  submissions,
+  limit,
+  language,
+}: {
+  problems: RawProblem[];
+  submissions: RawSubmission[];
+  limit?: number;
+  language?: Language;
+}): LatestAcSubmission[] {
   let acSubmissions = submissions
     .filter((s) => s.result === "AC" && isLanguageMatch(s.language, language))
     .sort((a, b) => b.epoch_second - a.epoch_second);
@@ -149,7 +156,8 @@ export function getLatestAcSubmissions(
  * @returns AC 提出数
  */
 export async function getAcCount(): Promise<number> {
-  const res = await fetch(API_AC_COUNT_URL, { next: { revalidate: 3600 } });
+  const res = await fetch(API_AC_COUNT_URL);
+  // const res = await fetch(API_AC_COUNT_URL, { next: { revalidate: 3600 } });
   if (!res.ok) {
     throw new Error(
       `Failed to fetch AC count: ${res.status} ${res.statusText}`
