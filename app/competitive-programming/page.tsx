@@ -1,14 +1,18 @@
 import Heading from "@/components/heading";
 import LinkCard from "@/components/linkCard";
+import { OverviewCard, OverviewField } from "@/components/overviewCard";
 import {
   getAllSubmissions,
   getLatestAcSubmissions,
   getProblems,
   getAcCount,
+  getLatestRating,
 } from "@/lib/atcoder";
+import { getColorsAndRatingToNextColor } from "@/lib/atcoder-rating";
 import { fetchMeta } from "@/lib/meta";
 
 export default async function Page() {
+  // 問題・提出情報の取得
   const problems = await getProblems();
   const allSubmissions = await getAllSubmissions();
   const latestCppSubmissions = getLatestAcSubmissions({
@@ -23,14 +27,19 @@ export default async function Page() {
     limit: 20,
     language: "Python",
   });
-  const acCount = await getAcCount();
 
+  // リンク先のメタ情報の取得
   const userPageMeta = await fetchMeta("https://atcoder.jp/users/ktsn_ud");
   const infoPageMeta = await fetchMeta(
     "https://info.atcoder.jp/utilize/jobs/rating-business-impact"
   );
 
-  // TODO: AC数の表示
+  // AC数・Rating
+  const acCount = await getAcCount();
+  const currentRating = await getLatestRating();
+  const { currentColor, nextColor, ratingToNextColor } =
+    getColorsAndRatingToNextColor(currentRating);
+
   // TODO: 直近の提出一覧
   return (
     <div>
@@ -40,7 +49,36 @@ export default async function Page() {
         href="https://info.atcoder.jp/utilize/jobs/rating-business-impact"
         meta={infoPageMeta}
       />
-      <p>AC 提出数: {acCount}</p>
+
+      <OverviewField>
+        <OverviewCard>
+          <div>AC提出数</div>
+          <div className="grow flex flex-col justify-center items-center">
+            <div className="text-3xl font-bold">
+              {acCount}
+              <span className="text-base"> 件</span>
+            </div>
+          </div>
+        </OverviewCard>
+        <OverviewCard>
+          <div>Rating</div>
+          <div className="grow flex flex-col justify-center items-center">
+            <div
+              className="text-3xl font-bold"
+              style={{ color: currentColor.code }}
+            >
+              {currentRating}
+            </div>
+            <div className="text-sm">
+              <span style={{ color: nextColor?.code }}>
+                {nextColor?.name}色
+              </span>
+              まで +{ratingToNextColor}
+            </div>
+          </div>
+        </OverviewCard>
+      </OverviewField>
+
       <pre>{JSON.stringify(latestCppSubmissions, null, 2)}</pre>
     </div>
   );

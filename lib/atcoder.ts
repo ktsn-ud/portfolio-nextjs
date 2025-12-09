@@ -13,6 +13,7 @@ const FROM_SECOND = getYearAgoEpochSecond(1);
 const API_PROBLEMS_URL = "https://kenkoooo.com/atcoder/resources/problems.json";
 const API_SUBMISSIONS_URL = `https://kenkoooo.com/atcoder/atcoder-api/v3/user/submissions?user=${ATCODER_USER}&from_second=${FROM_SECOND}`;
 const API_AC_COUNT_URL = `https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank?user=${ATCODER_USER}`;
+const USER_CONTEST_HISTORY_URL = `https://atcoder.jp/users/${ATCODER_USER}/history/json`;
 
 interface RawProblem {
   id: string;
@@ -51,6 +52,19 @@ interface LatestAcSubmission {
 interface RawAcCount {
   count: number;
   rank: number;
+}
+
+interface UserContest {
+  IsRated: boolean;
+  Place: number;
+  OldRating: number;
+  NewRating: number;
+  Performance: number;
+  InnerPerformance: number;
+  ContestScreenName: string;
+  ContestName: string;
+  ContestNameEn: string;
+  EndTime: string;
 }
 
 export const LANGUAGES = ["C++", "Python"];
@@ -165,4 +179,24 @@ export async function getAcCount(): Promise<number> {
   }
   const data = (await res.json()) as RawAcCount;
   return data.count;
+}
+
+/**
+ * 最新のレートを表示する
+ */
+export async function getLatestRating(): Promise<number> {
+  const res = await fetch(USER_CONTEST_HISTORY_URL, {
+    next: { revalidate: 3600 },
+  });
+  if (!res.ok) {
+    throw new Error(
+      `Failed to fetch contest history: ${res.status} ${res.statusText}`
+    );
+  }
+  const data = (await res.json()) as UserContest[];
+  if (data.length === 0) {
+    throw new Error("No contest history found");
+  }
+  const latestContest = data[data.length - 1];
+  return latestContest.NewRating;
 }
