@@ -10,7 +10,7 @@ function getYearAgoEpochSecond(years: number): number {
 
 const FROM_SECOND = getYearAgoEpochSecond(1);
 
-const VALIDATE_INTERVAL_SECONDS = 600; // 10分
+const VALIDATE_INTERVAL_SECONDS = 1800; // 30分
 const API_PROBLEMS_URL = "https://kenkoooo.com/atcoder/resources/problems.json";
 const API_SUBMISSIONS_URL = `https://kenkoooo.com/atcoder/atcoder-api/v3/user/submissions?user=${ATCODER_USER}&from_second=${FROM_SECOND}`;
 const API_AC_COUNT_URL = `https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank?user=${ATCODER_USER}`;
