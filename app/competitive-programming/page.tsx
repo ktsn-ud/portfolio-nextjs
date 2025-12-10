@@ -35,7 +35,6 @@ export default async function Page() {
   const { currentColor, nextColor, ratingToNextColor } =
     getColorsAndRatingToNextColor(currentRating);
 
-  // TODO: 直近の提出一覧
   return (
     <div>
       <Heading labelJa="競技プログラミング" labelEn="Competitive Programming" />
@@ -64,12 +63,14 @@ export default async function Page() {
             >
               {currentRating}
             </div>
-            <div className="text-sm">
-              <span style={{ color: nextColor?.code }}>
-                {nextColor?.name}色
-              </span>
-              まで +{ratingToNextColor}
-            </div>
+            {nextColor && (
+              <div className="text-sm">
+                <span style={{ color: nextColor.code }}>
+                  {nextColor.name}色
+                </span>
+                まで +{ratingToNextColor}
+              </div>
+            )}
           </div>
         </OverviewCard>
       </OverviewField>
