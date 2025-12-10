@@ -7,22 +7,22 @@ import Sidebar from "@/components/sidebar";
 const lineSeedJP = localFont({
   src: [
     {
-      path: "../public/fonts/LINESeedJP_OTF_Th.woff2",
+      path: "../public/fonts/LINESeedJP_A_OTF_Th_subset.woff2",
       weight: "100",
       style: "normal",
     },
     {
-      path: "../public/fonts/LINESeedJP_OTF_Rg.woff2",
+      path: "../public/fonts/LINESeedJP_A_OTF_Rg_subset.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/LINESeedJP_OTF_Bd.woff2",
+      path: "../public/fonts/LINESeedJP_A_OTF_Bd_subset.woff2",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../public/fonts/LINESeedJP_OTF_Eb.woff2",
+      path: "../public/fonts/LINESeedJP_A_OTF_Eb_subset.woff2",
       weight: "800",
       style: "normal",
     },
