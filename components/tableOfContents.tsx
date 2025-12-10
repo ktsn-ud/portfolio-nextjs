@@ -10,6 +10,7 @@ export default function TableOfContents() {
     { href: "/history", label: "History" },
     { href: "/skills", label: "Skills" },
     { href: "/works", label: "Works" },
+    { href: "/competitive-programming", label: "Competitive Prog." },
     { href: "/contact", label: "Contact" },
   ];
   const pathname = usePathname();
