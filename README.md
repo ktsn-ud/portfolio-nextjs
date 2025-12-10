@@ -110,7 +110,7 @@ pnpm lint
 
 ## データソース / 謝辞
 
-- 競技プログラミング（AtCoder）関連データの取得に [AtCoder Problems API](https://github.com/kenkoooo/AtCoderProblems/blob/master/doc/api.md) を利用しています。素晴らしい API を公開いただきありがとうございます。
+- 競技プログラミング（AtCoder）関連データの取得に [AtCoder Problems API](https://github.com/kenkoooo/AtCoderProblems/blob/master/doc/api.md) を利用しています。素晴らしい API を公開いただきありがとうございます。また、 AtCoder 公式によるユーザーコンテスト履歴の json 公開を利用しています。
 
 ## お問い合わせ
 
