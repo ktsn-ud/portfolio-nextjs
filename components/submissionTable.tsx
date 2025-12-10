@@ -24,7 +24,7 @@ export default function SubmissionTable({
 }) {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full table-fixed border-y border-border my-4">
+      <table className="w-full table-fixed border-y border-border">
         <thead>
           <tr className="bg-gray-600 text-white">
             <th className="p-2 border-y border-border w-30">提出日</th>

@@ -11,6 +11,7 @@ import {
 } from "@/lib/atcoder";
 import { getColorsAndRatingToNextColor } from "@/lib/atcoder-rating";
 import { fetchMeta } from "@/lib/meta";
+import Heading2 from "@/components/heading2";
 
 export default async function Page() {
   // 問題・提出情報の取得
@@ -73,6 +74,7 @@ export default async function Page() {
         </OverviewCard>
       </OverviewField>
 
+      <Heading2>直近の提出</Heading2>
       <SubmissionTable submissions={latestSubmissions} />
     </div>
   );
