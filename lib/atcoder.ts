@@ -10,6 +10,7 @@ function getYearAgoEpochSecond(years: number): number {
 
 const FROM_SECOND = getYearAgoEpochSecond(1);
 
+const VALIDATE_INTERVAL_SECONDS = 600; // 10分
 const API_PROBLEMS_URL = "https://kenkoooo.com/atcoder/resources/problems.json";
 const API_SUBMISSIONS_URL = `https://kenkoooo.com/atcoder/atcoder-api/v3/user/submissions?user=${ATCODER_USER}&from_second=${FROM_SECOND}`;
 const API_AC_COUNT_URL = `https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank?user=${ATCODER_USER}`;
@@ -75,8 +76,9 @@ type Language = (typeof LANGUAGES)[number];
  * @returns RawProblem[]
  */
 export async function getProblems(): Promise<RawProblem[]> {
-  const res = await fetch(API_PROBLEMS_URL);
-  // const res = await fetch(API_PROBLEMS_URL, { next: { revalidate: 3600 } });
+  const res = await fetch(API_PROBLEMS_URL, {
+    next: { revalidate: VALIDATE_INTERVAL_SECONDS },
+  });
   if (!res.ok) {
     throw new Error(
       `Failed to fetch problems: ${res.status} ${res.statusText}`
@@ -91,8 +93,9 @@ export async function getProblems(): Promise<RawProblem[]> {
  * @returns RawSubmission[]
  */
 export async function getAllSubmissions(): Promise<RawSubmission[]> {
-  const res = await fetch(API_SUBMISSIONS_URL);
-  // const res = await fetch(API_SUBMISSIONS_URL, { next: { revalidate: 3600 } });
+  const res = await fetch(API_SUBMISSIONS_URL, {
+    next: { revalidate: VALIDATE_INTERVAL_SECONDS },
+  });
   if (!res.ok) {
     throw new Error(
       `Failed to fetch submissions: ${res.status} ${res.statusText}`
@@ -170,8 +173,9 @@ export function getLatestAcSubmissions({
  * @returns AC 提出数
  */
 export async function getAcCount(): Promise<number> {
-  const res = await fetch(API_AC_COUNT_URL);
-  // const res = await fetch(API_AC_COUNT_URL, { next: { revalidate: 3600 } });
+  const res = await fetch(API_AC_COUNT_URL, {
+    next: { revalidate: VALIDATE_INTERVAL_SECONDS },
+  });
   if (!res.ok) {
     throw new Error(
       `Failed to fetch AC count: ${res.status} ${res.statusText}`
@@ -186,7 +190,7 @@ export async function getAcCount(): Promise<number> {
  */
 export async function getLatestRating(): Promise<number> {
   const res = await fetch(USER_CONTEST_HISTORY_URL, {
-    next: { revalidate: 3600 },
+    next: { revalidate: VALIDATE_INTERVAL_SECONDS },
   });
   if (!res.ok) {
     throw new Error(
