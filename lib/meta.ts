@@ -50,7 +50,7 @@ export async function fetchMeta(url: string): Promise<Meta> {
     meta.description = description;
     meta.image = image;
   } catch (error) {
-    console.error("Error fetching meta:", error);
+    throw new Error(`Failed to fetch metadata for ${url}: ${error}`);
   }
 
   return meta;
