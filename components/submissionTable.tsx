@@ -14,7 +14,7 @@ function convertEpochToDate(epochSecond: number) {
 }
 
 function removeBrackets(str: string) {
-  return str.replace(/\(.+?\)/, "");
+  return str.replace(/\(.+?\)/, "").trim();
 }
 
 export default function SubmissionTable({
