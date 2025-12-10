@@ -18,11 +18,13 @@ export default function LinkCard({ href, meta }: LinkCardProps) {
           <div className="text-xs text-gray-500 mt-2">{domain}</div>
         </div>
         <div className="grow bg-white">
-          <img
-            src={meta.image}
-            alt={meta.title}
-            className="w-full h-full object-cover"
-          />
+          {meta.image && (
+            <img
+              src={meta.image}
+              alt={meta.title || "link preview image"}
+              className="w-full h-full object-cover"
+            />
+          )}
         </div>
       </div>
     </a>
