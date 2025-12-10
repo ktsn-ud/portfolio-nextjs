@@ -27,10 +27,10 @@ export default function SubmissionTable({
       <table className="w-full table-fixed border-y border-border">
         <thead>
           <tr className="bg-gray-600 text-white">
-            <th className="p-2 border-y border-border w-30">提出日</th>
-            <th className="p-2 border-y border-border w-50">問題</th>
-            <th className="p-2 border-y border-border w-25">言語</th>
-            <th className="p-2 border-y border-border w-20">得点</th>
+            <th className="p-2 border-y border-r border-border w-30">提出日</th>
+            <th className="p-2 border-y border-r border-border w-50">問題</th>
+            <th className="p-2 border-y border-r border-border w-25">言語</th>
+            <th className="p-2 border-y border-r border-border w-20">得点</th>
             <th className="p-2 border-y border-border w-30">リンク</th>
           </tr>
         </thead>
