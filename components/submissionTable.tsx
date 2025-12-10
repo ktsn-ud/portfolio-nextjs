@@ -23,7 +23,7 @@ export default function SubmissionTable({
   submissions: LatestAcSubmission[];
 }) {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto my-2">
       <table className="w-full table-fixed border-y border-border">
         <thead>
           <tr className="bg-gray-600 text-white">

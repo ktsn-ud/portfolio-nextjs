@@ -74,7 +74,11 @@ export default async function Page() {
         </OverviewCard>
       </OverviewField>
 
-      <Heading2>直近の提出</Heading2>
+      <Heading2>直近のAC提出</Heading2>
+      <p>最新のAC提出を20件表示しています。</p>
+      <p className="text-text-secondary text-sm">
+        ※ACとはAcceptedのことで、正解した提出のことを指します。
+      </p>
       <SubmissionTable submissions={latestSubmissions} />
     </div>
   );
