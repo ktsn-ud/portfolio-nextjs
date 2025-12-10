@@ -31,6 +31,7 @@ function Profile() {
           src={profileIcon}
           alt="プロフィール画像"
           className="w-32 h-32 rounded-full object-cover"
+          loading="eager"
         />
         <p className="my-4 font-bold">きつねうどん</p>
       </div>
