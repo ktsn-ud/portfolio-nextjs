@@ -16,7 +16,10 @@ export async function fetchMeta(url: string): Promise<Meta> {
   };
 
   try {
-    const res = await fetch(url);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    const res = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeoutId);
     const html = await res.text();
     const dom = htmlparser2.parseDocument(html);
     const metaTags = htmlparser2.DomUtils.findAll(
