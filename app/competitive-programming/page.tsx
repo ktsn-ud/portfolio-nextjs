@@ -1,5 +1,6 @@
 import Heading from "@/components/heading";
 import LinkCard from "@/components/linkCard";
+import SubmissionTable from "@/components/submissionTable";
 import { OverviewCard, OverviewField } from "@/components/overviewCard";
 import {
   getAllSubmissions,
@@ -15,17 +16,10 @@ export default async function Page() {
   // 問題・提出情報の取得
   const problems = await getProblems();
   const allSubmissions = await getAllSubmissions();
-  const latestCppSubmissions = getLatestAcSubmissions({
+  const latestSubmissions = getLatestAcSubmissions({
     problems: problems,
     submissions: allSubmissions,
     limit: 20,
-    language: "C++",
-  });
-  const latestPythonSubmissions = getLatestAcSubmissions({
-    problems: problems,
-    submissions: allSubmissions,
-    limit: 20,
-    language: "Python",
   });
 
   // リンク先のメタ情報の取得
@@ -79,7 +73,7 @@ export default async function Page() {
         </OverviewCard>
       </OverviewField>
 
-      <pre>{JSON.stringify(latestCppSubmissions, null, 2)}</pre>
+      <SubmissionTable submissions={latestSubmissions} />
     </div>
   );
 }

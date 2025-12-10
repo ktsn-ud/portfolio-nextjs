@@ -36,7 +36,7 @@ interface RawSubmission {
   execution_time: number;
 }
 
-interface LatestAcSubmission {
+export interface LatestAcSubmission {
   id: number;
   epoch_second: number;
   problem: {
