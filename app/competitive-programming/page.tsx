@@ -80,6 +80,9 @@ export default async function Page() {
       <p className="text-text-secondary text-sm">
         ※ACとはAcceptedのことで、正解した提出のことを指します。
       </p>
+      <p className="text-text-secondary text-sm">
+        ※APIの更新頻度の関係で、最新の提出が反映されるまでに時間がかかる場合があります。
+      </p>
       <SubmissionTable submissions={latestSubmissions} />
     </div>
   );
